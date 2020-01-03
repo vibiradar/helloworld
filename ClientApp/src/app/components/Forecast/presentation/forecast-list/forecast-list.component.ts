@@ -1,13 +1,14 @@
-import { OnInit, Component, OnDestroy, Input } from "@angular/core";
+import { OnInit, Component, OnDestroy, Input, Output, EventEmitter } from "@angular/core";
 import { IForecast } from "../../../shared/models/IForcast";
 
 
 @Component({
   selector: 'app-forecast-detail',
-  templateUrl: './forecast-detail.component.html',
+  templateUrl: './forecast-list.component.html',
 })
 export class ForecastDetailComponent implements OnInit, OnDestroy {
   @Input() forecasts: IForecast[];
+  @Output() forecastEmit = new EventEmitter();
   constructor() {
 
   }
@@ -16,5 +17,8 @@ export class ForecastDetailComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
 
+  }
+  openDialog(forecast: IForecast) {
+    this.forecastEmit.emit(forecast);
   }
 }

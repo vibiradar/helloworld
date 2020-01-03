@@ -1,0 +1,9 @@
+<tr class="row">
+  <td class="col">{{ forecast.date | date  }}</td>
+  <td class="col">{{ forecast.temperatureC }}</td>
+  <td class="col">{{ forecast.temperatureF }}</td>
+  <td class="col">{{ forecast.summary }}</td>
+  <td class="col">
+    <button mat-raised-button (click)="openDialog(forecast)">View Detail</button>
+  </td>
+</tr>

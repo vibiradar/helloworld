@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Forecast Data for {{data.summary}} is:</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="col-md-4">
+      <label>Summary</label>
+    </div>
+    <div class="col-md-8">
+      <p>{{data.summary}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label>Date</label>
+    </div>
+    <div class="col-md-8">
+      <p>{{data.date}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label>Temperature in C</label>
+    </div>
+    <div class="col-md-8">
+      <p>{{data.temperatureC}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label>Temperature in F</label>
+    </div>
+    <div class="col-md-8">
+      <p>{{data.temperatureF}}</p>
+    </div>
+  </div>
+  <p></p>
+  
+  
+ 
+</div>
+<div mat-dialog-actions>
+  <button  mat-raised-button color="warn" (click)="onNoClick()">No Thanks</button>
+  <button  mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
+
+
+<!--date: string;
+  temperatureC: number;
+  temperatureF: number;
+  summary: string;-->

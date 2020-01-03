@@ -12,19 +12,28 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, effects, initialState } from './store/app.state';
-import { ForecastDetailComponent } from './components/Forecast/presentation/forecast-detail/forecast-detail.component';
+import { ForecastDetailComponent } from './components/Forecast/presentation/forecast-list/forecast-list.component';
 import { ForecastContainerComponent } from './components/Forecast/containers/forecast.container.component';
+import { ForecastDetailViewComponent } from './components/Forecast/presentation/forecast-detail-view/forecast-detail-view.component';
+import { MaterialModule } from './app.material.module';
+import { ForecastDialogComponent } from './components/Forecast/presentation/forecast-dialog/forecast-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
     ForecastContainerComponent,
-    ForecastDetailComponent
+    ForecastDetailComponent,
+    ForecastDetailViewComponent,
+    ForecastDialogComponent
   ],
   imports: [
+    MaterialModule,
+    BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -33,12 +42,14 @@ import { ForecastContainerComponent } from './components/Forecast/containers/for
     StoreDevtoolsModule.instrument({     // Required for ReduxDevTools
       maxAge: 25                         // Track history for 25 actions
     }),
+
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: ForecastContainerComponent },
     ])
   ],
+  entryComponents: [ForecastDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
