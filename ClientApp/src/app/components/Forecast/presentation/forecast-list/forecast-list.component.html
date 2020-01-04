@@ -1,6 +1,9 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">
+  Weather forecast
+  <button class="btn-add-forecast" mat-raised-button color="primary">Add</button>
 
-<p>This component demonstrates fetching data from the server.</p>
+</h1>
+
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
@@ -15,6 +18,7 @@
     </tr>
   </thead>
   <tbody>
+    <app-forecast-add></app-forecast-add>
     <app-forecast-detail-view [forecast]="forecast" *ngFor="let forecast of forecasts" (forecastEvent)="openDialog(forecast)"></app-forecast-detail-view>
 
     <!--<tr *ngFor="let forecast of forecasts">

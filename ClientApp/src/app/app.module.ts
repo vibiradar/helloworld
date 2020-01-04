@@ -18,6 +18,7 @@ import { ForecastDetailViewComponent } from './components/Forecast/presentation/
 import { MaterialModule } from './app.material.module';
 import { ForecastDialogComponent } from './components/Forecast/presentation/forecast-dialog/forecast-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddComponent } from './components/Forecast/presentation/add/add.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ForecastContainerComponent,
     ForecastDetailComponent,
     ForecastDetailViewComponent,
-    ForecastDialogComponent
+    ForecastDialogComponent,
+    AddComponent
   ],
   imports: [
     MaterialModule,
