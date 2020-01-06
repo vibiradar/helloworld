@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,13 +12,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, effects, initialState } from './store/app.state';
-import { ForecastDetailComponent } from './components/Forecast/presentation/forecast-list/forecast-list.component';
-import { ForecastContainerComponent } from './components/Forecast/containers/forecast.container.component';
-import { ForecastDetailViewComponent } from './components/Forecast/presentation/forecast-detail-view/forecast-detail-view.component';
+import { ForecastDetailComponent } from './components/forecast/presentation/forecast-list/forecast-list.component';
+import { ForecastContainerComponent } from './components/forecast/containers/forecast.container.component';
+import { ForecastDetailViewComponent } from './components/forecast/presentation/forecast-detail-view/forecast-detail-view.component';
 import { MaterialModule } from './app.material.module';
-import { ForecastDialogComponent } from './components/Forecast/presentation/forecast-dialog/forecast-dialog.component';
+import { ForecastDialogComponent } from './components/forecast/presentation/forecast-dialog/forecast-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddComponent } from './components/Forecast/presentation/add/add.component';
+import { AddComponent } from './components/forecast/presentation/add/add.component';
+import { ForecastComponent } from './components/forecast/presentation/forecast/forecast.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AddComponent } from './components/Forecast/presentation/add/add.compone
     ForecastDetailComponent,
     ForecastDetailViewComponent,
     ForecastDialogComponent,
-    AddComponent
+    AddComponent,
+    ForecastComponent,
   ],
   imports: [
     MaterialModule,
@@ -39,6 +41,7 @@ import { AddComponent } from './components/Forecast/presentation/add/add.compone
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers, { initialState }),
     EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({     // Required for ReduxDevTools

@@ -25,8 +25,8 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\app.material.module.ts" />
-    <None Remove="ClientApp\src\app\components\Forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
-    <None Remove="ClientApp\src\app\components\Forecast\presentation\forecast-list\forecast-list.component.ts" />
+    <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
+    <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
     <None Remove="ClientApp\src\app\components\shared\models\IForcast.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.action.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.effects.ts" />
@@ -38,8 +38,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\app.material.module.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\components\Forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\components\Forecast\presentation\forecast-list\forecast-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\shared\models\IForcast.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.action.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.effects.ts" />

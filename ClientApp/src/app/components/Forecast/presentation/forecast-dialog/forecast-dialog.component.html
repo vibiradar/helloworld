@@ -38,8 +38,11 @@
  
 </div>
 <div mat-dialog-actions>
-  <button  mat-raised-button color="warn" (click)="onNoClick()">No Thanks</button>
-  <button  mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button mat-raised-button color="accent" (click)="onNoClick()">No Thanks</button>
+
+  <button mat-raised-button color="warn" [mat-dialog-close]="data" >Delete</button>
+
+  <button mat-raised-button color="primary" cdkFocusInitial>Ok</button>
 </div>
 
 

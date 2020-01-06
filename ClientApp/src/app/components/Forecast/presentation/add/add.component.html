@@ -1,8 +1,85 @@
-<tr class="row">
-  <td class="col">Add</td>
-  <td class="col"></td>
-  <td class="col"></td>
-  <td class="col"></td>
-  <td class="col"></td>
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">My Reactive Form with Material</span>
+</mat-toolbar>
+<form [formGroup]="forecastForm" (ngSubmit)="onSubmit(forecastForm.value)" class="form">
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Summary" formControlName="summary">
+    <mat-error *ngIf="!forecastForm.get('summary').valid && forecastForm.get('summary').touched">
+      Summary required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
 
-</tr>
+    <!--<input matInput placeholder="Date" formControlName="date">-->
+    <mat-error *ngIf="!forecastForm.get('date').valid && forecastForm.get('date').touched">
+      Date required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <input type="number" matInput placeholder="Temperature in F" formControlName="temperatureF">
+    <mat-error *ngIf="!forecastForm.get('temperatureF').valid && forecastForm.get('temperatureF').touched">
+      Temp in F required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <input type="number" matInput placeholder="Temperature in C" formControlName="temperatureC">
+    <mat-error *ngIf="!forecastForm.get('temperatureC').valid && forecastForm.get('temperatureC').touched">
+      Temp in C required
+    </mat-error>
+  </mat-form-field>
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!forecastForm.valid">Submit Forecast</button>
+  </div>
+</form>
+<!--<div class="container" *ngIf="!post; else forminfo" novalidate>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Emailaddress" formControlName="email">
+      <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+        {{ getErrorEmail() }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Name" formControlName="name">
+      <mat-error *ngIf="!name.valid && name.touched">
+        {{ titleAlert }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <textarea matInput placeholder="Description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" formControlName="description"></textarea>
+      <mat-error *ngIf="!formGroup.controls['description'].valid && formGroup.controls['description'].touched">
+        Required field, must be between 5 and 10 characters.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Password" formControlName="password">
+      <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+      <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+        {{ getErrorPassword() }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-element">
+      <mat-checkbox formControlName="validate" value="1">Name min. 3 characters</mat-checkbox>
+    </div>
+
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+    </div>
+
+  </form>
+</div>
+
+<ng-template #forminfo>
+  <div class="container">
+    {{ post | json }}
+  </div>
+</ng-template>-->

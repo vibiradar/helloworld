@@ -1,4 +1,15 @@
-<app-forecast-detail [forecasts]="forecasts" (forecastEmit)="openDialog($event)"></app-forecast-detail>
-
+<app-forecast [forecasts]="forecasts"></app-forecast>
 
 <!--<app-forecast-detail-view></app-forecast-detail-view>-->
+<mat-tab-group [(selectedIndex)]="selectedIndex">
+  <mat-tab label="List">
+    <app-forecast-list [forecasts]="forecasts" (forecastEmit)="openDialog($event)"></app-forecast-list>
+  </mat-tab>
+  <mat-tab label="Add">
+    <app-forecast-add *ngIf="selectedIndex == 1" (addForecast)="addForecast($event)"></app-forecast-add>
+  </mat-tab>
+  <!--<mat-tab label="Delete">
+    Delete the selected forecast
+  </mat-tab>-->
+
+</mat-tab-group>

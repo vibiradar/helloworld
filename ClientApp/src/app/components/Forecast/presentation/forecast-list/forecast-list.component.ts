@@ -3,7 +3,7 @@ import { IForecast } from "../../../shared/models/IForcast";
 
 
 @Component({
-  selector: 'app-forecast-detail',
+  selector: 'app-forecast-list',
   templateUrl: './forecast-list.component.html',
   styleUrls: ['./forecast-list.component.css']
 })

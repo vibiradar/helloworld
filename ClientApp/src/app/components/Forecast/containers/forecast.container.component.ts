@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IForecast } from '../../shared/models/IForcast';
 import { Store, select } from '@ngrx/store';
-import { GetData } from '../../../store/fetch-data/fetch-data.action'
+import { GetData, AddForecastData, DeleteForecastData } from '../../../store/fetch-data/fetch-data.action'
 import { AppState, getForecast } from '../../../store/app.state';
 import { SubSink } from 'subsink';
 import { MatDialog, MatDialogConfig } from '@angular/material';
@@ -15,13 +15,15 @@ import { ForecastDialogComponent } from '../presentation/forecast-dialog/forecas
 export class ForecastContainerComponent implements OnInit, OnDestroy {
   public forecasts: IForecast[];
   private subs = new SubSink();
+  selectedIndex: number = 1;
   constructor(private store: Store<AppState>, public dialog: MatDialog) {
    
   }
 
   ngOnInit() {
     this.subs.sink = this.store.pipe(select(getForecast)).subscribe((forecasts: IForecast[]) => {
-      this.forecasts = forecasts
+      this.forecasts = forecasts;
+      this.selectedIndex = 0;
     });
 
     if (this.forecasts.length == 0) {
@@ -38,11 +40,14 @@ export class ForecastContainerComponent implements OnInit, OnDestroy {
       width: '600px'
     });
 
-    //dialogRef.afterClosed().subscribe(result => {
-    //  console.log('The dialog was closed');
-    //});
+    dialogRef.afterClosed().subscribe(forecastvalue => {
+      this.store.dispatch(new DeleteForecastData(forecastvalue));
+      console.log('The dialog was closed and deleted the record');
+    });
   }
-
+  addForecast(forecastvalue: IForecast) {
+    this.store.dispatch(new AddForecastData(forecastvalue));
+  }
 
   
 }
