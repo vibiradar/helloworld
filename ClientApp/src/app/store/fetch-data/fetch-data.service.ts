@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { IForecast } from "../../components/shared/models/IForcast";
 import { map, tap, catchError } from "rxjs/operators";
 
-@Injectable({ providedIn: 'root' })     
+@Injectable({ providedIn: 'root' })
 export class FetchService {
 
   readonly getForcastDataurl = 'api/weatherforecast';

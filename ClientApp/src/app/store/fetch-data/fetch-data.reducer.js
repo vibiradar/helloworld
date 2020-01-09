@@ -19,6 +19,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var fetch_data_action_1 = require("./fetch-data.action");
+var utility_service_1 = require("../../components/shared/utility/utility.service");
 var fetch_data_state_1 = require("./fetch-data.state");
 function forcastReducer(state, action) {
     if (state === void 0) { state = fetch_data_state_1.initialState; }
@@ -31,11 +32,16 @@ function forcastReducer(state, action) {
             return __assign(__assign({}, state), { forcast: [], loading: [], error: '' });
         }
         case fetch_data_action_1.Forecast_Data_ADD: {
-            return __assign(__assign({}, state), { forcast: __spreadArrays(state.forcast, [action.payload]), loading: [], error: '' });
+            var newForcastState = __spreadArrays(state.forcast);
+            return __assign(__assign({}, state), { forcast: utility_service_1.insertobjectInArray(newForcastState, action.payload, newForcastState.length), 
+                //forcast: [...state.forcast, action.payload],
+                loading: [], error: '' });
         }
         case fetch_data_action_1.Forecast_Data_DELETE: {
-            var newForecastState = state.forcast.filter(function (val) { return val.summary !== action.payload.summary; });
-            return __assign(__assign({}, state), { forcast: newForecastState, loading: [], error: '' });
+            var newForcastState = __spreadArrays(state.forcast);
+            var index = newForcastState.indexOf(function (item) { return item.id == action.payload.id; });
+            //const newForecastState = state.forcast.filter(val => val.summary !== action.payload.summary);
+            return __assign(__assign({}, state), { forcast: utility_service_1.removeObjectFromArray(newForcastState, index), loading: [], error: '' });
         }
         default:
             return __assign({}, state);

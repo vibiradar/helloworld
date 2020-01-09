@@ -7,22 +7,29 @@ import { AppState, getForecast } from '../../../store/app.state';
 import { SubSink } from 'subsink';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ForecastDialogComponent } from '../presentation/forecast-dialog/forecast-dialog.component';
+import { updateObjectInArray } from '../../shared/utility/utility.service';
 
 @Component({
   selector: 'app-forecast.container',
   templateUrl: './forecast.container.component.html'
 })
 export class ForecastContainerComponent implements OnInit, OnDestroy {
-  public forecasts: IForecast[];
+  public forecasts: IForecast[] = [];
   private subs = new SubSink();
   selectedIndex: number = 1;
   constructor(private store: Store<AppState>, public dialog: MatDialog) {
-   
+
   }
 
   ngOnInit() {
     this.subs.sink = this.store.pipe(select(getForecast)).subscribe((forecasts: IForecast[]) => {
-      this.forecasts = forecasts;
+      if (forecasts && forecasts.length > 0) {
+        const forecast = forecasts[0];
+        forecast.summary = "Hello";
+        this.forecasts = [];
+        this.forecasts = updateObjectInArray(forecasts, forecast, 0);
+        //this.forecasts[0] = forecast;
+      }
       this.selectedIndex = 0;
     });
 
@@ -35,20 +42,23 @@ export class ForecastContainerComponent implements OnInit, OnDestroy {
   }
 
   openDialog(data: IForecast): void {
-    const dialogRef = this.dialog.open(ForecastDialogComponent,  {
+    const dialogRef = this.dialog.open(ForecastDialogComponent, {
       data: data,
       width: '600px'
     });
 
     dialogRef.afterClosed().subscribe(forecastvalue => {
-      this.store.dispatch(new DeleteForecastData(forecastvalue));
-      console.log('The dialog was closed and deleted the record');
+      if (forecastvalue) {
+        this.store.dispatch(new DeleteForecastData(forecastvalue));
+        console.log('The dialog was closed and deleted the record');
+
+      }
     });
   }
   addForecast(forecastvalue: IForecast) {
     this.store.dispatch(new AddForecastData(forecastvalue));
   }
 
-  
+
 }
 

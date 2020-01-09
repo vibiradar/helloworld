@@ -27,26 +27,42 @@
     <None Remove="ClientApp\src\app\app.material.module.ts" />
     <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
     <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
+    <None Remove="ClientApp\src\app\components\progress-spinner\progress-spinner.component.ts" />
+    <None Remove="ClientApp\src\app\components\shared\actionDecorators\action-decorators.ts" />
     <None Remove="ClientApp\src\app\components\shared\models\IForcast.ts" />
+    <None Remove="ClientApp\src\app\components\shared\utility\utility.service.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.action.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.effects.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.reducer.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.service.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.state.ts" />
     <None Remove="ClientApp\src\app\store\fetch-data\index.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\index.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.action.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.effect.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.reducer.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.state.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\app.material.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\progress-spinner\progress-spinner.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\actionDecorators\action-decorators.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\shared\models\IForcast.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\utility\utility.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.action.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.effects.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.reducer.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.state.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.action.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.effect.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.reducer.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.state.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

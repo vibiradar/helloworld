@@ -1,10 +1,11 @@
-import { OnInit, OnDestroy, Component, Input, Output, EventEmitter } from "@angular/core";
+import { OnInit, OnDestroy, Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
 import { IForecast } from "../../../shared/models/IForcast";
 
 
 @Component({
   selector: 'app-forecast-detail-view',
-  templateUrl: './forecast-detail-view.component.html'
+  templateUrl: './forecast-detail-view.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ForecastDetailViewComponent implements OnInit, OnDestroy {
   @Input() forecast: IForecast;

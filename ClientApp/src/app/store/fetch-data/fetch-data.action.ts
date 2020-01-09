@@ -1,5 +1,6 @@
 import { Action } from "@ngrx/store";
-import { IForecast } from "../../components/shared/models/IForcast";
+import { ShowLoader, HideLoader } from "../../components/shared/actionDecorators/action-decorators";
+
 
 export const Forecast_Data_GET = '[Forecast Data Component] Get Data List';
 export const Forecast_Data_SUCCEEDED = '[Forecast Data Component] Get Data  Succeeded';
@@ -8,6 +9,7 @@ export const Forecast_Data_STARTED = '[Forecast Data Component] Get Data Started
 export const Forecast_Data_ADD = '[Forecast Data Component] Add Forecast Data';
 export const Forecast_Data_DELETE = '[Forecast Data Component] Delete Forecast Data';
 
+@ShowLoader()
 export class GetData implements Action {
   readonly type: string = Forecast_Data_GET;
 }
@@ -16,6 +18,8 @@ export class GetData_Started implements Action {
 
   readonly type: string = Forecast_Data_STARTED;
 }
+
+@HideLoader(Forecast_Data_GET)
 export class GetData_Succeeded implements Action {
   constructor(public payload: any) {
     // Log message is here just so we can see when our actions
@@ -42,6 +46,8 @@ export class DeleteForecastData implements Action {
   }
   readonly type: string = Forecast_Data_DELETE;
 }
+
+@HideLoader(Forecast_Data_GET)
 export class GetData_Failed implements Action {
   constructor(public payload: string) {
     console.log(payload);
