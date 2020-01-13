@@ -15,8 +15,16 @@ import { updateObjectInArray } from '../../shared/utility/utility.service';
 })
 export class ForecastContainerComponent implements OnInit, OnDestroy {
   public forecasts: IForecast[] = [];
-  private subs = new SubSink();
+  public columns: any[] = [
+    { field: "date", title: "Date" },
+    { field: "temperatureC", title: "Temp. (C)" },
+    { field: "temperatureF", title: "Temp. (F)" },
+    { field: "summary", title: "Summary" },
+  ];
   selectedIndex: number = 1;
+
+  private subs = new SubSink();
+
   constructor(private store: Store<AppState>, public dialog: MatDialog) {
 
   }

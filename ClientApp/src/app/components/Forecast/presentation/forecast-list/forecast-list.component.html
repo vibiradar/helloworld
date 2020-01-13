@@ -1,3 +1,4 @@
+<button kendoButton  [primary]="true">My Kendo UI Button</button>
 
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
@@ -15,13 +16,13 @@
     <app-forecast-detail-view [forecast]="forecast" *ngFor="let forecast of forecasts" (forecastEvent)="openDialog(forecast)"></app-forecast-detail-view>
 
     <!--<tr *ngFor="let forecast of forecasts">
-    <td>{{ forecast.date }}</td>
-    <td>{{ forecast.temperatureC }}</td>
-    <td>{{ forecast.temperatureF }}</td>
-    <td>{{ forecast.summary }}</td>
-    <td>
-      <button mat-raised-button (click)="openDialog(forecast)">View Detail</button>
-    </td>
-  </tr>-->
+      <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td>
+        <button mat-raised-button (click)="openDialog(forecast)">View Detail</button>
+      </td>
+    </tr>-->
   </tbody>
 </table>

@@ -22,6 +22,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddComponent } from './components/forecast/presentation/add/add.component';
 import { ForecastComponent } from './components/forecast/presentation/forecast/forecast.component';
 import { ProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
+import { FullscreenComponent } from './components/fullscreen/fullscreen.component';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { GenericKendoGridComponent } from './components/shared/kendo/generic-kendo-grid/generic-kendo-grid.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +41,9 @@ import { ProgressSpinnerComponent } from './components/progress-spinner/progress
     ForecastDialogComponent,
     AddComponent,
     ForecastComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    FullscreenComponent,
+    GenericKendoGridComponent
   ],
   imports: [
     MaterialModule,
@@ -53,8 +61,13 @@ import { ProgressSpinnerComponent } from './components/progress-spinner/progress
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
+      { path: 'fullscreen', component: FullscreenComponent },
       { path: 'fetch-data', component: ForecastContainerComponent },
-    ])
+    ]),
+
+    ButtonsModule,
+
+    GridModule
   ],
   entryComponents: [ForecastDialogComponent],
   providers: [],

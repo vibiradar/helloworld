@@ -1,0 +1,23 @@
+<kendo-grid [kendoGridBinding]="data" [height]="410"
+            [pageable]="{
+            buttonCount: buttonCount,
+            info: info,
+            type: type,
+            pageSizes: [2, 4, 6],
+            previousNext: previousNext
+          }"
+            [sortable]="true"
+            [groupable]="true"
+            [filterable]="true"
+            [pageSize]="10" >
+  <kendo-grid-column *ngFor="let col of columns" [field]="col.field" [title]="col.title"></kendo-grid-column>
+  <!--<kendo-grid-column *ngFor="let column of columns"
+                     field="{{column.field}}"
+                     title="{{column.title}}"
+                     ></kendo-grid-column>-->
+
+
+  <!--<kendo-grid-column field="date"></kendo-grid-column>
+  <kendo-grid-column field="summary"></kendo-grid-column>-->
+
+</kendo-grid>

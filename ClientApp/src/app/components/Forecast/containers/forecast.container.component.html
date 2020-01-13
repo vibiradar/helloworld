@@ -5,11 +5,10 @@
   <mat-tab label="List">
     <app-forecast-list [forecasts]="forecasts" (forecastEmit)="openDialog($event)"></app-forecast-list>
   </mat-tab>
-  <mat-tab label="Add">
-    <app-forecast-add *ngIf="selectedIndex == 1" (addForecast)="addForecast($event)"></app-forecast-add>
+  <mat-tab label="Kendo Grid List">
+    <app-generic-kendo-grid [data]="forecasts" [columns]="columns" ></app-generic-kendo-grid>
   </mat-tab>
-  <!--<mat-tab label="Delete">
-    Delete the selected forecast
-  </mat-tab>-->
-
+  <mat-tab label="Add">
+    <app-forecast-add *ngIf="selectedIndex == 2" (addForecast)="addForecast($event)"></app-forecast-add>
+  </mat-tab>
 </mat-tab-group>
