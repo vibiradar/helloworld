@@ -1,0 +1,15 @@
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.deps.json
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.runtimeconfig.json
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.runtimeconfig.dev.json
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.dll
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.pdb
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.Contract.dll
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Model.dll
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Data.Contract.pdb
+D:\HelloWorld\HelloWorld.Data\bin\Debug\netcoreapp3.1\HelloWorld.Model.pdb
+D:\HelloWorld\HelloWorld.Data\obj\Debug\netcoreapp3.1\HelloWorld.Data.csprojAssemblyReference.cache
+D:\HelloWorld\HelloWorld.Data\obj\Debug\netcoreapp3.1\HelloWorld.Data.AssemblyInfoInputs.cache
+D:\HelloWorld\HelloWorld.Data\obj\Debug\netcoreapp3.1\HelloWorld.Data.AssemblyInfo.cs
+D:\HelloWorld\HelloWorld.Data\obj\Debug\netcoreapp3.1\HelloWorld.Data.csproj.CopyComplete
+D:\HelloWorld\HelloWorld.Data\obj\Debug\netcoreapp3.1\HelloWorld.Data.dll
+D:\HelloWorld\HelloWorld.Data\obj\Debug\netcoreapp3.1\HelloWorld.Data.pdb

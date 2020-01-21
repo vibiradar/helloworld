@@ -1,0 +1,52 @@
+<p>kendo-generic-form works!</p>
+<div class="card">
+  <div class="card-block">
+
+    <form class="k-form-inline" [formGroup]="formGroup" (ngSubmit)="submit(formGroup)">
+
+      <div *ngFor="let column of columns">
+        <div [ngSwitch]="column.editor">
+          <div *ngSwitchCase="'text'" class="form-group">
+            <label>
+              {{column.title}}
+            </label>
+            <input class="form-control" kendoTextBox [formControlName]="column.field" />
+          </div>
+
+          <div *ngSwitchCase="'numeric'" class="form-group">
+            <label>
+              {{column.title}}
+              <kendo-numerictextbox class="form-control" [formControlName]="column.field" [min]="-10" [max]="20" ngModel> </kendo-numerictextbox>
+            </label>
+          </div>
+
+          <div *ngSwitchCase="'ddl'" class="form-group">
+            <label class="">
+              {{column.title}}
+            </label>
+            <kendo-combobox class="form-control" [formControlName]="column.field"
+                            [data]="column.value"
+                            [textField]="'text'"
+                            [valueField]="'value'"
+                            required>
+            </kendo-combobox>
+          </div>
+
+          <div *ngSwitchCase="'multiselect'" class="form-group">
+            <label class="">
+              {{column.title}}
+            </label>
+            <kendo-multiselect class="form-control" [formControlName]="column.field"
+                               [data]="column.value"
+                               [textField]="'text'"
+                               [valueField]="'value'"
+                               required>
+            </kendo-multiselect>
+          </div>
+        </div>
+      </div>
+      <button type="submit" kendoButton [look]="'outline'" [primary]="true" class="btn btn-default" [disabled]="!formGroup.valid">Submit</button>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<kendo-grid [kendoGridBinding]="dataItem" [height]="410"
+            [pageable]="{
+            buttonCount: buttonCount,
+            info: info,
+            type: type,
+            pageSizes: [2, 4, 6],
+            previousNext: previousNext
+          }"
+            (edit)="editHandler($event)" (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)" (remove)="removeHandler($event)"
+            (add)="addHandler($event)"
+            [sortable]="true"
+            [groupable]="true"
+            [filterable]="false"
+            [pageSize]="10">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add new</button>     <progress-spinner></progress-spinner>
+
+  </ng-template>
+  <ng-container *ngFor="let column of columns">
+
+    <kendo-grid-column *ngIf="column.field != 'date' && !column.removeColumn"
+                       [field]="column.field"
+                       [title]="column.title"
+                       [format]="column.format">
+      <ng-container [ngSwitch]="column.editor">
+
+        <!-- template to bind text type -->
+        <ng-template *ngSwitchCase="'text'" kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+          <input #input class="k-textbox" [formControl]="formGroup.get(column.field)">
+          <kendo-popup [anchor]="input"
+                       *ngIf="formGroup.get(column.field).invalid && !(isNew && formGroup.get(column.field).untouched)"
+                       popupClass="k-widget k-tooltip k-tooltip-validation k-invalid-msg">
+            <span class="k-icon k-i-warning"> </span>
+            <span class='content'>
+              {{getMessage(column.field)}}
+            </span>
+            <span> </span>
+          </kendo-popup>
+        </ng-template>
+
+        <!--template to bind number type-->
+        <ng-template *ngSwitchCase="'numeric'" kendoGridEditTemplate let-column="column" let-formGroup="formGroup" let-isNew="isNew">
+          <input #input class="k-textbox" type="number" [formControl]="formGroup.get(column.field)">
+          <kendo-popup [anchor]="input"
+                       *ngIf="formGroup.get(column.field).invalid && !(isNew && formGroup.get(column.field).untouched)"
+                       popupClass="k-widget k-tooltip k-tooltip-validation k-invalid-msg">
+            <span class="k-icon k-i-warning"></span>
+            <span class='content'>
+              {{getMessage(column.field)}}
+            </span>
+          </kendo-popup>
+        </ng-template>
+
+        <!-- template to edit dropdown -->
+        <!--<ng-template *ngSwitchCase="'ddl'" kendoGridEditTemplate
+                     let-dataItem="dataItem"
+                     let-column="column"
+                     let-formGroup="formGroup">
+          {{(countryList[0].itemName}}
+          <kendo-dropdownlist #ddl="popupAnchor"
+                              popupAnchor
+                              [defaultItem]="getDdlList(dataItem)"
+                              [data]="countryList"
+                              textField="countryList[0].itemName"
+                              valueField="countryList[0].countryId"
+                              [formControl]="formGroup.get(column.field)">
+          </kendo-dropdownlist>
+          <kendo-popup [anchor]="ddl.element"
+                       *ngIf="formGroup.get(column.field).invalid && !(isNew && formGroup.get(column.field).untouched)"
+                       popupClass="k-widget k-tooltip k-tooltip-validation k-invalid-msg">
+            <span class="k-icon k-i-warning"></span>
+            Category is required
+          </kendo-popup>
+        </ng-template>-->
+      </ng-container>
+    </kendo-grid-column>
+    <kendo-grid-column *ngIf="column.field == 'date' && !column.removeColumn"
+                       [field]="column.field"
+                       [title]="column.title"
+                       [format]="column.format"
+                       [editor]="column.editor">
+    </kendo-grid-column>
+  </ng-container>
+  <kendo-grid-command-column title="command" width="220">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Remove</button>
+      <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
+      <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>

@@ -1,0 +1,8 @@
+D:\HelloWorld\HelloWorld.Model\bin\Debug\netcoreapp3.1\HelloWorld.Model.deps.json
+D:\HelloWorld\HelloWorld.Model\bin\Debug\netcoreapp3.1\HelloWorld.Model.dll
+D:\HelloWorld\HelloWorld.Model\bin\Debug\netcoreapp3.1\HelloWorld.Model.pdb
+D:\HelloWorld\HelloWorld.Model\obj\Debug\netcoreapp3.1\HelloWorld.Model.AssemblyInfoInputs.cache
+D:\HelloWorld\HelloWorld.Model\obj\Debug\netcoreapp3.1\HelloWorld.Model.AssemblyInfo.cs
+D:\HelloWorld\HelloWorld.Model\obj\Debug\netcoreapp3.1\HelloWorld.Model.dll
+D:\HelloWorld\HelloWorld.Model\obj\Debug\netcoreapp3.1\HelloWorld.Model.pdb
+D:\HelloWorld\HelloWorld.Model\obj\Debug\netcoreapp3.1\HelloWorld.Model.csprojAssemblyReference.cache

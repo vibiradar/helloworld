@@ -1,0 +1,113 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\app.material.module.ts" />
+    <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
+    <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
+    <None Remove="ClientApp\src\app\components\progress-spinner\progress-spinner.component.ts" />
+    <None Remove="ClientApp\src\app\components\shared\actionDecorators\action-decorators.ts" />
+    <None Remove="ClientApp\src\app\components\shared\models\enums\crud-operation.enum.ts" />
+    <None Remove="ClientApp\src\app\components\shared\models\IForcast.ts" />
+    <None Remove="ClientApp\src\app\components\shared\utility\utility.service.ts" />
+    <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.action.ts" />
+    <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.effects.ts" />
+    <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.reducer.ts" />
+    <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.service.ts" />
+    <None Remove="ClientApp\src\app\store\fetch-data\fetch-data.state.ts" />
+    <None Remove="ClientApp\src\app\store\fetch-data\index.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\index.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.action.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.effect.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.reducer.ts" />
+    <None Remove="ClientApp\src\app\store\progress-spinner\progress-spinner.state.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HelloWorld.Data.Contract\HelloWorld.Data.Contract.csproj" />
+    <ProjectReference Include="..\HelloWorld.Data\HelloWorld.Data.csproj" />
+    <ProjectReference Include="..\HelloWorld.Model\HelloWorld.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\app.material.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-detail-view\forecast-detail-view.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\progress-spinner\progress-spinner.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\actionDecorators\action-decorators.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\models\enums\crud-operation.enum.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\models\IForcast.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\utility\utility.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.action.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.effects.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.reducer.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\fetch-data.state.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\fetch-data\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.action.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.effect.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.reducer.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\progress-spinner\progress-spinner.state.ts" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
