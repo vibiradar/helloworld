@@ -44,11 +44,11 @@ export class ForecastContainerComponent implements OnInit, OnDestroy {
       removeColumn: true,
       message: "Id is not required",
     },
-    {
-      field: "countryList", title: "Country", editor: "ddl", format: '', editable: true, value: '',
-      validation: [Validators.required],
-      message: "Select any one country",
-    }
+    //{
+    //  field: "countryList", title: "Country", editor: "ddl", format: '', editable: true, value: '',
+    //  validation: [Validators.required],
+    //  message: "Select any one country",
+    //}
   ];
 
   selectedIndex: number = 1;

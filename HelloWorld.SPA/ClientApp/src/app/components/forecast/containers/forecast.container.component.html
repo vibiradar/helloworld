@@ -3,7 +3,7 @@
 <!--<app-forecast-detail-view></app-forecast-detail-view>-->
 <mat-tab-group [(selectedIndex)]="selectedIndex">
   <mat-tab label="Kendo Grid List">
-    <!--<app-generic-kendo-grid [dataItem]="forecasts" [columns]="columns" (createUpdateDeleteForecast)="createUpdateDeleteForecast($event )"></app-generic-kendo-grid>-->
+    <app-generic-kendo-grid [dataItem]="forecasts" [columns]="columns" (createUpdateDeleteForecast)="createUpdateDeleteForecast($event )"></app-generic-kendo-grid>
   </mat-tab>
   <mat-tab label="List">
     <app-forecast-list [forecasts]="forecasts" (forecastEmit)="openDialog($event)"></app-forecast-list>

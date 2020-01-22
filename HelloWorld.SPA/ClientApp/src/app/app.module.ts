@@ -36,6 +36,7 @@ import { DropDownComponent } from './components/shared/kendo/controls/drop-down/
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { KendoGenericFormComponent } from './components/shared/kendo/kendo-generic-form/kendo-generic-form.component';
 import { NumericTextBoxComponent } from './components/shared/kendo/controls/numeric-text-box/numeric-text-box.component';
+import { KendoGenericFormArrayComponent } from './components/shared/kendo/kendo-generic-form-array/kendo-generic-form-array.component';
 
 
 
@@ -54,11 +55,11 @@ import { NumericTextBoxComponent } from './components/shared/kendo/controls/nume
     ProgressSpinnerComponent,
     FullscreenComponent,
     GenericKendoGridComponent,
+    KendoGenericFormArrayComponent,
     PopupAnchorDirective,
 
     TextBoxComponent,
     RadioButtonComponent,
-    
     TextBoxComponent,
     CheckBoxComponent,
     DropDownComponent,
@@ -83,7 +84,8 @@ import { NumericTextBoxComponent } from './components/shared/kendo/controls/nume
       { path: 'counter', component: CounterComponent },
       { path: 'fullscreen', component: FullscreenComponent },
       { path: 'fetch-data', component: ForecastContainerComponent },
-      { path: 'register', component: KendoGenericFormComponent }
+      { path: 'register', component: KendoGenericFormComponent },
+      { path: 'a', component: KendoGenericFormArrayComponent }
     ]),
 
     ButtonsModule,
