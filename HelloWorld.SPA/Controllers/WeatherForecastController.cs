@@ -29,6 +29,7 @@ namespace HelloWorld.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            //throw new Exception();
             //var rng = new Random();
             ////System.Threading.Thread.Sleep(10000);
             //List<Country> list = new List<Country>();

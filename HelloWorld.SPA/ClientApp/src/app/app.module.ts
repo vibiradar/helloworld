@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -37,6 +37,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { KendoGenericFormComponent } from './components/shared/kendo/kendo-generic-form/kendo-generic-form.component';
 import { NumericTextBoxComponent } from './components/shared/kendo/controls/numeric-text-box/numeric-text-box.component';
 import { KendoGenericFormArrayComponent } from './components/shared/kendo/kendo-generic-form-array/kendo-generic-form-array.component';
+import { GlobalErrorHandler } from './components/shared/error-handling/global-error-handler';
+import { ServerErrorInterceptor } from './components/shared/interceptors/server-error.Interceptor';
 
 
 
@@ -98,7 +100,10 @@ import { KendoGenericFormArrayComponent } from './components/shared/kendo/kendo-
     DropDownsModule
   ],
   entryComponents: [ForecastDialogComponent],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

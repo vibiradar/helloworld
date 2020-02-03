@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, throwError } from "rxjs";
 import { IForecast } from "../../components/shared/models/IForcast";
 import { map, tap, catchError } from "rxjs/operators";
 
@@ -26,6 +26,8 @@ export class FetchService {
       catchError(this.handleError));
   }
 
+
+  
   //get forecast by Id
   public getForecastById(id: number): Observable<IForecast> {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('userToken') });
@@ -76,11 +78,11 @@ export class FetchService {
   }
 
   //handle error response from http
-  private handleError(error: HttpResponse<any>, self: any): Observable<any> {
+  private handleError(error: HttpErrorResponse, self: any): Observable<any> {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
-    console.error(error);
+    console.error(error.message);
 
-    return Observable.throw(error || 'Server error');
+    return throwError(error.message || 'Server error');
   }
 }

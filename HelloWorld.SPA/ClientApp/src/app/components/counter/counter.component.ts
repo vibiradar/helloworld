@@ -4,6 +4,7 @@ import { SubSink } from 'subsink';
 import { Observable } from 'rxjs';
 import { AppState, getCounter } from '../../store/app.state';
 import { Increment, Decrement, Reset } from '../../store/counter';
+import { HeroService } from '../shared/services/hero.setvice';
 
 @Component({
     selector: 'app-counter',
@@ -13,9 +14,10 @@ import { Increment, Decrement, Reset } from '../../store/counter';
 export class CounterComponent implements OnInit, OnDestroy {
     public counter: number = 0;
     private subs = new SubSink();
-    constructor(private store: Store<AppState>) { }
-
-    ngOnInit() {
+    constructor(private store: Store<AppState>, private heroService: HeroService) { }
+    length: number;
+  ngOnInit() {
+    this.length = this.heroService.getHeros().length;
         this.subs.sink = this.store.pipe(select(getCounter)).subscribe((res: any) => {
             this.counter = res.counter
         });

@@ -38,6 +38,8 @@
     <None Remove="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
     <None Remove="ClientApp\src\app\components\progress-spinner\progress-spinner.component.ts" />
     <None Remove="ClientApp\src\app\components\shared\actionDecorators\action-decorators.ts" />
+    <None Remove="ClientApp\src\app\components\shared\error-handling\error-service.ts" />
+    <None Remove="ClientApp\src\app\components\shared\error-handling\global-error-handler.ts" />
     <None Remove="ClientApp\src\app\components\shared\kendo\kendo-generic-form-array\kendo-generic-form-array.component.ts" />
     <None Remove="ClientApp\src\app\components\shared\models\enums\crud-operation.enum.ts" />
     <None Remove="ClientApp\src\app\components\shared\models\IForcast.ts" />
@@ -67,6 +69,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\components\forecast\presentation\forecast-list\forecast-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\progress-spinner\progress-spinner.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\shared\actionDecorators\action-decorators.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\error-handling\error-service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\error-handling\global-error-handler.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\shared\kendo\kendo-generic-form-array\kendo-generic-form-array.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\shared\models\enums\crud-operation.enum.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\shared\models\IForcast.ts" />

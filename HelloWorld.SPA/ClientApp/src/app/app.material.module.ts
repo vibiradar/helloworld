@@ -30,7 +30,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatStepperModule, } from '@angular/material';
+  MatStepperModule,MatSnackBar } from '@angular/material';
 
 
 const MaterialComponents = [
